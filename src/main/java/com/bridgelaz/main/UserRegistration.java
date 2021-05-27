@@ -11,6 +11,7 @@ public class UserRegistration {
     //DECLARE PATTERN
     String firstNamePattern = "^[A-Z][a-z]{2,}$";
     String lastNamePattern = "^[A-Z][a-z]{2,}$";
+    String emailPattern="^[0-9A-Za-z]+([-_+.][0-9A-Za-z]+)?[@][a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?$";
 
     //first name method
     public boolean validateFirstName(String name) {
@@ -20,5 +21,9 @@ public class UserRegistration {
     //last name method
     public boolean validateLastName(String name) {
         return (Pattern.matches(lastNamePattern,name));
+    }
+    //email method
+    public boolean isValidEmail(String Email) {
+        return Pattern.matches(emailPattern,Email);
     }
 }
