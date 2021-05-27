@@ -85,35 +85,79 @@ public class UserRegistrationTest {
     @Test
     public void givenPhoneNumber_WhenValid_ThenReturn() {
         String phoneNumber = "+91 8888310299";
-        boolean  phoneNumber1 = Preregistration.isValidPhonenumber(phoneNumber);
+        boolean  phoneNumber1 = Preregistration.isValidPhonemes(phoneNumber);
         Assert.assertTrue(phoneNumber1);
     }
 
     @Test
     public void givenPhoneNumber_WhenValid_ThenReturnTrue() {
         String phoneNumber = "8888310299";
-        boolean  phoneNumber1 = Preregistration.isValidPhonenumber(phoneNumber);
+        boolean  phoneNumber1 = Preregistration.isValidPhonemes(phoneNumber);
         Assert.assertTrue(phoneNumber1);
     }
 
     @Test
-    public void givenPhoneNumber_WhenInValid_ThenReturnFaase() {
+    public void givenPhoneNumberIncomplete_WhenInValid_ThenReturnFalse() {
         String phoneNumber = "88883102";
-        boolean  phoneNumber1 = Preregistration.isValidPhonenumber(phoneNumber);
+        boolean  phoneNumber1 = Preregistration.isValidPhonemes(phoneNumber);
         Assert.assertFalse(phoneNumber1);
     }
 
     @Test
     public void givenPhoneNumber_WhenInValid_ThenReturnFalse() {
         String phoneNumber = "918888310299";
-        boolean  phoneNumber1 = Preregistration.isValidPhonenumber(phoneNumber);
+        boolean  phoneNumber1 = Preregistration.isValidPhonemes(phoneNumber);
         Assert.assertFalse(phoneNumber1);
     }
 
     @Test
     public void givenPhoneNumberAndWord_WhenInValid_ThenReturnFalse() {
         String phoneNumber = "91888831Nilu";
-        boolean  phoneNumber1 = Preregistration.isValidPhonenumber(phoneNumber);
+        boolean  phoneNumber1 = Preregistration.isValidPhonemes(phoneNumber);
         Assert.assertFalse(phoneNumber1);
     }
+
+    //password method rule 1
+    @Test
+    public void givenPassword_WhenValid_ThenReturn() {
+        String password = "Rajkumar";
+        boolean  password1 = Preregistration.isValidPassword(password);
+        Assert.assertTrue(password1);
+    }
+
+    @Test
+    public void givenPasswordNumber_WhenValid_ThenReturn() {
+        String password = "123456789";
+        boolean  password1 = Preregistration.isValidPassword(password);
+        Assert.assertTrue(password1);
+    }
+
+    @Test
+    public void givenPasswordNumberCharters_WhenInValid_ThenReturnTrue() {
+        String password = "1234Nilesh";
+        boolean  password1 = Preregistration.isValidPassword(password);
+        Assert.assertTrue(password1);
+    }
+
+    @Test
+    public void givenPassword_WhenInValid_ThenReturn() {
+        String password = "nilesh";
+        boolean  password1 = Preregistration.isValidPassword(password);
+        Assert.assertFalse(password1);
+    }
+
+    @Test
+    public void givenPasswordNumber_WhenInValid_ThenReturn() {
+        String password = "1245";
+        boolean  password1 = Preregistration.isValidPassword(password);
+        Assert.assertFalse(password1);
+    }
+
+    @Test
+    public void givenPasswordNumberCharters_WhenInValid_ThenReturnFalse() {
+        String password = "1245Nil";
+        boolean  password1 = Preregistration.isValidPassword(password);
+        Assert.assertFalse(password1);
+    }
+
 }
