@@ -59,10 +59,24 @@ public class UserRegistrationTest {
         boolean emailID = Preregistration.isValidEmail(email);
         Assert.assertTrue(emailID);
     }
-    @Test
 
+    @Test
     public void givenEmailName_whenInvalid_thenReturnFalse() {
         String email = "ladnilesh1994@gmail";
+        boolean emailID = Preregistration.isValidEmail(email);
+        Assert.assertFalse(emailID);
+    }
+
+    @Test
+    public void givenEmail_WhenValid_ThenReturn() {
+        String email = "ladnilesh1994@gmail.in.co";
+        boolean emailID = Preregistration.isValidEmail(email);
+        Assert.assertTrue(emailID);
+    }
+
+    @Test
+    public void givenEmailName_whenInvalid_thenReturn() {
+        String email = "Ladnilesh1994.com";
         boolean emailID = Preregistration.isValidEmail(email);
         Assert.assertFalse(emailID);
     }
