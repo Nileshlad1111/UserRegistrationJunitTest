@@ -80,4 +80,40 @@ public class UserRegistrationTest {
         boolean emailID = Preregistration.isValidEmail(email);
         Assert.assertFalse(emailID);
     }
+
+    //test case mobile number
+    @Test
+    public void givenPhoneNumber_WhenValid_ThenReturn() {
+        String phoneNumber = "+91 8888310299";
+        boolean  phoneNumber1 = Preregistration.isValidPhonenumber(phoneNumber);
+        Assert.assertTrue(phoneNumber1);
+    }
+
+    @Test
+    public void givenPhoneNumber_WhenValid_ThenReturnTrue() {
+        String phoneNumber = "8888310299";
+        boolean  phoneNumber1 = Preregistration.isValidPhonenumber(phoneNumber);
+        Assert.assertTrue(phoneNumber1);
+    }
+
+    @Test
+    public void givenPhoneNumber_WhenInValid_ThenReturnFaase() {
+        String phoneNumber = "88883102";
+        boolean  phoneNumber1 = Preregistration.isValidPhonenumber(phoneNumber);
+        Assert.assertFalse(phoneNumber1);
+    }
+
+    @Test
+    public void givenPhoneNumber_WhenInValid_ThenReturnFalse() {
+        String phoneNumber = "918888310299";
+        boolean  phoneNumber1 = Preregistration.isValidPhonenumber(phoneNumber);
+        Assert.assertFalse(phoneNumber1);
+    }
+
+    @Test
+    public void givenPhoneNumberAndWord_WhenInValid_ThenReturnFalse() {
+        String phoneNumber = "91888831Nilu";
+        boolean  phoneNumber1 = Preregistration.isValidPhonenumber(phoneNumber);
+        Assert.assertFalse(phoneNumber1);
+    }
 }
