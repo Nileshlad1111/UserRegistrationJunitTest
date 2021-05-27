@@ -120,23 +120,30 @@ public class UserRegistrationTest {
     //password method rule 1
     @Test
     public void givenPassword_WhenValid_ThenReturn() {
-        String password = "Rajkumar";
+        String password = "RajkumarDon";
         boolean  password1 = Preregistration.isValidPassword(password);
         Assert.assertTrue(password1);
     }
 
     @Test
     public void givenPasswordNumber_WhenValid_ThenReturn() {
-        String password = "123456789";
+        String password = "NILESHLAD12345";
         boolean  password1 = Preregistration.isValidPassword(password);
         Assert.assertTrue(password1);
     }
 
     @Test
     public void givenPasswordNumberCharters_WhenInValid_ThenReturnTrue() {
-        String password = "1234Nilesh";
+        String password = "Nilesh12345";
         boolean  password1 = Preregistration.isValidPassword(password);
         Assert.assertTrue(password1);
+    }
+
+    @Test
+    public void givenPasswordUpperCaseCharters_WhenInValid_ThenReturnTrue() {
+        String password = "12345NILESH";
+        boolean  password1 = Preregistration.isValidPassword(password);
+        Assert.assertFalse(password1);
     }
 
     @Test
@@ -156,6 +163,13 @@ public class UserRegistrationTest {
     @Test
     public void givenPasswordNumberCharters_WhenInValid_ThenReturnFalse() {
         String password = "1245Nil";
+        boolean  password1 = Preregistration.isValidPassword(password);
+        Assert.assertFalse(password1);
+    }
+
+    @Test
+    public void givenPasswordUpperCaseCharters_WhenInValid_ThenReturnFalse() {
+        String password = "NILESH";
         boolean  password1 = Preregistration.isValidPassword(password);
         Assert.assertFalse(password1);
     }
