@@ -10,9 +10,15 @@ public class UserRegistration {
     }
     //DECLARE PATTERN
     String firstNamePattern = "^[A-Z][a-z]{2,}$";
+    String lastNamePattern = "^[A-Z][a-z]{2,}$";
 
     //first name method
     public boolean validateFirstName(String name) {
         return (Pattern.matches(firstNamePattern, name));
+    }
+
+    //last name method
+    public boolean validateLastName(String name) {
+        return (Pattern.matches(lastNamePattern,name));
     }
 }

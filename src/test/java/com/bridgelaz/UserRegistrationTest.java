@@ -8,6 +8,7 @@ import org.junit.Test;
 public class UserRegistrationTest {
     UserRegistration Preregistration = new UserRegistration();
 
+    //first name test cases
     @Test
     public void givenFirstName_whenValid_thenReturnTrue() {
         String name="Nilesh";
@@ -20,5 +21,34 @@ public class UserRegistrationTest {
         String name="nilesh";
         boolean firstName = Preregistration.validateFirstName(name);
         Assert.assertFalse(firstName);
+    }
+
+    @Test
+    public void givenFirstName_WhenInvalidFirstLetterUpperCase_ThenReturn() {
+        String name="NILESH";
+        boolean firstName = Preregistration.validateFirstName(name);
+        Assert.assertFalse(firstName);
+    }
+
+    //last name test cases
+    @Test
+    public void givenLastName_whenValid_thenReturnTrue() {
+        String name="Lad";
+        boolean lastName = Preregistration.validateLastName(name);
+        Assert.assertTrue(lastName);
+    }
+
+    @Test
+    public void givenLastName_whenValid_thenReturnFalse() {
+        String name="lad";
+        boolean lastName = Preregistration.validateLastName(name);
+        Assert.assertFalse(lastName);
+    }
+
+    @Test
+    public void givenLastName_WhenInvalidFirstLetterUpperCase_ThenReturn() {
+        String name="LAD";
+        boolean lastName = Preregistration.validateLastName(name);
+        Assert.assertFalse(lastName);
     }
 }
