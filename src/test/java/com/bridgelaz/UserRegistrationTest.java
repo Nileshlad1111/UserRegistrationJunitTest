@@ -117,7 +117,7 @@ public class UserRegistrationTest {
         Assert.assertFalse(phoneNumber1);
     }
 
-    //password method rule 1
+    //password minimum 8 character
     @Test
     public void givenPassword_WhenValid_ThenReturn() {
         String password = "RajkumarDon";
@@ -140,13 +140,6 @@ public class UserRegistrationTest {
     }
 
     @Test
-    public void givenPasswordUpperCaseCharters_WhenInValid_ThenReturnTrue() {
-        String password = "12345NILESH";
-        boolean  password1 = Preregistration.isValidPassword(password);
-        Assert.assertFalse(password1);
-    }
-
-    @Test
     public void givenPassword_WhenInValid_ThenReturn() {
         String password = "nilesh";
         boolean  password1 = Preregistration.isValidPassword(password);
@@ -163,6 +156,14 @@ public class UserRegistrationTest {
     @Test
     public void givenPasswordNumberCharters_WhenInValid_ThenReturnFalse() {
         String password = "1245Nil";
+        boolean  password1 = Preregistration.isValidPassword(password);
+        Assert.assertFalse(password1);
+    }
+
+    //password at list one upper case
+    @Test
+    public void givenPasswordUpperCaseCharters_WhenInValid_ThenReturnTrue() {
+        String password = "12345NILESH";
         boolean  password1 = Preregistration.isValidPassword(password);
         Assert.assertFalse(password1);
     }
