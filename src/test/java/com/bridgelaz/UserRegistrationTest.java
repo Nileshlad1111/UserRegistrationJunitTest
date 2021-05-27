@@ -162,7 +162,7 @@ public class UserRegistrationTest {
 
     //password at list one upper case
     @Test
-    public void givenPasswordUpperCaseCharters_WhenInValid_ThenReturnTrue() {
+    public void givenPasswordUpperCaseCharters_WhenValid_ThenReturnTrue() {
         String password = "12345NILESH";
         boolean  password1 = Preregistration.isValidPassword(password);
         Assert.assertFalse(password1);
@@ -175,4 +175,32 @@ public class UserRegistrationTest {
         Assert.assertFalse(password1);
     }
 
+    //password at list one numeric
+    @Test
+    public void givenPasswordNumeric_WhenValid_ThenReturnTrue() {
+        String password = "NILESH1111LAD";
+        boolean  password1 = Preregistration.isValidPassword(password);
+        Assert.assertTrue(password1);
+    }
+
+    @Test
+    public void givenPasswordAtList_OneNumeric_WhenValid_ThenReturnTrue() {
+        String password = "NILESH1LAD";
+        boolean  password1 = Preregistration.isValidPassword(password);
+        Assert.assertTrue(password1);
+    }
+
+    @Test
+    public void givenPasswordNumeric_WhenInValid_ThenReturnFalse() {
+        String password = "1234NIL";
+        boolean  password1 = Preregistration.isValidPassword(password);
+        Assert.assertFalse(password1);
+    }
+
+    @Test
+    public void givenPasswordAtList_OneNumeric_WhenInValid_ThenReturnFalse() {
+        String password = "NILESHLAD1111";
+        boolean  password1 = Preregistration.isValidPassword(password);
+        Assert.assertTrue(password1);
+    }
 }
