@@ -13,7 +13,7 @@ public class UserRegistration {
     String lastNamePattern = "^[A-Z][a-z]{2,}$";
     String emailPattern = "^[0-9A-Za-z]+([-_+.][0-9A-Za-z]+)?[@][a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?$";
     String mobileNumber = "^(\\+?\\d{1,4}[\\s-])?(?!0+\\s+,?$)\\d{10}\\s*,?$";
-    String passwordPattern = "^[A-Z][a-zA-Z0-9]{8,}";
+    String passwordPattern = "^[A-Z0-9a-z.%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}";
 
 
     //first name method

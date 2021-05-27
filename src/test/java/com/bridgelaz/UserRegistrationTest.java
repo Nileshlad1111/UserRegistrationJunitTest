@@ -120,21 +120,21 @@ public class UserRegistrationTest {
     //password minimum 8 character
     @Test
     public void givenPassword_WhenValid_ThenReturn() {
-        String password = "RajkumarDon";
+        String password = "Rajkumar@Don.in";
         boolean  password1 = Preregistration.isValidPassword(password);
         Assert.assertTrue(password1);
     }
 
     @Test
     public void givenPasswordNumber_WhenValid_ThenReturn() {
-        String password = "NILESHLAD12345";
+        String password = "NILESHLAD@.12345.in";
         boolean  password1 = Preregistration.isValidPassword(password);
         Assert.assertTrue(password1);
     }
 
     @Test
     public void givenPasswordNumberCharters_WhenInValid_ThenReturnTrue() {
-        String password = "Nilesh12345";
+        String password = "Nilesh12345%@.co.in";
         boolean  password1 = Preregistration.isValidPassword(password);
         Assert.assertTrue(password1);
     }
@@ -178,14 +178,14 @@ public class UserRegistrationTest {
     //password at list one numeric
     @Test
     public void givenPasswordNumeric_WhenValid_ThenReturnTrue() {
-        String password = "NILESH1111LAD";
+        String password = "NILESH1@GMAIL.COM";
         boolean  password1 = Preregistration.isValidPassword(password);
         Assert.assertTrue(password1);
     }
 
     @Test
     public void givenPasswordAtList_OneNumeric_WhenValid_ThenReturnTrue() {
-        String password = "NILESH1LAD";
+        String password = "Nilesh1994@.com.in";
         boolean  password1 = Preregistration.isValidPassword(password);
         Assert.assertTrue(password1);
     }
@@ -199,8 +199,37 @@ public class UserRegistrationTest {
 
     @Test
     public void givenPasswordAtList_OneNumeric_WhenInValid_ThenReturnFalse() {
-        String password = "NILESHLAD1111";
+        String password = "Nilesh19";
+        boolean  password1 = Preregistration.isValidPassword(password);
+        Assert.assertFalse(password1);
+    }
+
+    //password at list one numeric
+    @Test
+    public void givenPasswordSpecialCharacter_WhenValid_ThenReturnTrue() {
+        String password = "NILESH@GMAIL.COM";
         boolean  password1 = Preregistration.isValidPassword(password);
         Assert.assertTrue(password1);
+    }
+
+    @Test
+    public void givenPasswordAtList_OneSpecialCharacter_WhenValid_ThenReturnTrue() {
+        String password = "NILESH@GMAIL.COM.in";
+        boolean  password1 = Preregistration.isValidPassword(password);
+        Assert.assertTrue(password1);
+    }
+
+    @Test
+    public void givenPasswordSpecialCharacter_WhenValid_ThenReturnFalse() {
+        String password = "nil@.in";
+        boolean  password1 = Preregistration.isValidPassword(password);
+        Assert.assertFalse(password1);
+    }
+
+    @Test
+    public void givenPasswordAtList_OneSpecialCharacter_WhenValid_ThenReturnFalse() {
+        String password = "NIL@.COM";
+        boolean  password1 = Preregistration.isValidPassword(password);
+        Assert.assertFalse(password1);
     }
 }
