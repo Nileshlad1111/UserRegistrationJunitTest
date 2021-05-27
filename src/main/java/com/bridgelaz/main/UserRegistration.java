@@ -6,7 +6,6 @@ import java.util.regex.Pattern;
 public class UserRegistration {
     public static void main(String[] args) {
         System.out.println("Welcome user registration");
-
     }
     //DECLARE PATTERN
     String firstNamePattern = "^[A-Z][a-z]{2,}$";
@@ -36,6 +35,7 @@ public class UserRegistration {
         return (Pattern.matches(mobileNumber,phoneNumber));
     }
 
+    //password method
     public boolean isValidPassword(String password) {
         return (Pattern.matches(passwordPattern,password));
     }

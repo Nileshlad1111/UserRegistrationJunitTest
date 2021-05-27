@@ -1,4 +1,4 @@
-package com.bridgelaz;
+package com.bridgelaz.validator;
 
 
 import com.bridgelaz.main.UserRegistration;
